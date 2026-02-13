@@ -1,3 +1,4 @@
+using System.Globalization;
 using WB.AccesoDatos;
 using WB.LogicaNegocio;
 
@@ -31,5 +32,13 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+var supportedCultures = new[] { new CultureInfo("es-PE") };
+app.UseRequestLocalization(new RequestLocalizationOptions
+{
+    DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("es-PE"),
+    SupportedCultures = supportedCultures,
+    SupportedUICultures = supportedCultures
+});
 
 app.Run();
