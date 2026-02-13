@@ -44,6 +44,22 @@
                         @* Formateamos el sueldo como moneda *@
                         <td>@emp.Sueldo.ToString("C")</td>
                     </tr>
+                    <th>Acciones</th>
+                        <td>
+                            <a asp-action="Eliminar" asp-route-id="@emp.IdEmpleado" 
+                               class="btn btn-outline-danger btn-sm" 
+                               onclick="return confirm('¿Seguro que deseas dar de baja a este empleado?')">
+                               Eliminar
+                            </a>
+                        </td>
+                        <td>
+                            <a asp-action="Editar" asp-route-id="@emp.IdEmpleado"
+                               class="btn btn-outline-danger btn-sm">
+                                Editar
+                            </a>
+                        </td>
+
+
                 }
             }
             else

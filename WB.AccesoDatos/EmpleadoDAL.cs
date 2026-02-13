@@ -34,7 +34,10 @@ namespace WB.AccesoDatos
                         c.NOMBRE_CARGO
                     FROM CL_EMPLEADOS e
                     INNER JOIN CL_DEPARTAMENTOS d ON e.ID_DPTO = d.ID_DPTO
-                    INNER JOIN CL_CARGOS c ON e.ID_CARGOS = c.ID_CARGOS";
+                    INNER JOIN CL_CARGOS c ON e.ID_CARGOS = c.ID_CARGOS
+                    WHERE e.ESTADO = 1
+                    ";
+
 
                 using (var comando = new SqlCommand(query, conexion))
                 {
@@ -106,10 +109,77 @@ namespace WB.AccesoDatos
             }
         }
 
+        public void EliminarLogico(int id)
+        {
+            using (var conexion = _db.ObtenerConexion())
+            {
+                conexion.Open();
+                string query = "UPDATE CL_EMPLEADOS SET ESTADO = 0 WHERE ID_EMPLEADO = @id";
+                using (var comando = new SqlCommand(query, conexion))
+                {
+                    comando.Parameters.AddWithValue("@id", id);
+                    comando.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public Empleado ObtenerPorId(int id)
+        {
+            Empleado emp = null;
+            using (var conexion = _db.ObtenerConexion())
+            {
+                conexion.Open();
+                string query = "SELECT * FROM CL_EMPLEADOS WHERE ID_EMPLEADO = @id";
+                using (var comando = new SqlCommand(query, conexion))
+                {
+                    comando.Parameters.AddWithValue("@id", id);
+                    using (var lector = comando.ExecuteReader())
+                    {
+                        if (lector.Read())
+                        {
+                            emp = new Empleado
+                            {
+                                IdEmpleado = Convert.ToInt32(lector["ID_EMPLEADO"]),
+                                Nombres = lector["NOMBRES"].ToString(),
+                                Apellidos = lector["APELLIDOS"].ToString(),
+                                Email = lector["EMAIL"].ToString(),
+                                Sueldo = Convert.ToDecimal(lector["SUELDO"]),
+                                IdDpto = Convert.ToInt32(lector["ID_DPTO"]),
+                                IdCargos = Convert.ToInt32(lector["ID_CARGOS"])                               
+                            };
+                        }
+                    }
+                }
+            }
+            return emp;
+        }
 
 
-        //
+        public void Actualizar(Empleado emp)
+        {
+            using (var conexion = _db.ObtenerConexion())
+            {
+                conexion.Open();
+                string query = @"UPDATE CL_EMPLEADOS 
+                         SET NOMBRES=@Nombres, APELLIDOS=@Apellidos, EMAIL=@Email, SUELDO=@Sueldo 
+                         WHERE ID_EMPLEADO=@Id";
+                using (var comando = new SqlCommand(query, conexion))
+                {
+                    comando.Parameters.AddWithValue("@Nombres", emp.Nombres);
+                    comando.Parameters.AddWithValue("@Apellidos", emp.Apellidos);
+                    comando.Parameters.AddWithValue("@Email", emp.Email);
+                    comando.Parameters.AddWithValue("@Sueldo", emp.Sueldo);
+                    comando.Parameters.AddWithValue("@Id", emp.IdEmpleado);
+                    comando.ExecuteNonQuery();
+                }
+            }
+        }
 
+
+
+
+
+        ///
 
     }
 }

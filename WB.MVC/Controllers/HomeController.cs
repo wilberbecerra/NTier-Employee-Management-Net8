@@ -8,11 +8,9 @@ namespace WB.MVC.Controllers
 {
     public class HomeController : Controller
     {
-        // 2. Campo privado para almacenar la referencia de la capa de negocio
+
         private readonly EmpleadoBL _empleadoBL;
 
-        // 3. Constructor: Recibe la instancia por Inyección de Dependencias
-        // .NET lee el Program.cs y sabe que debe entregar un objeto EmpleadoBL aquí.
         public HomeController(EmpleadoBL empleadoBL)
         {
             _empleadoBL = empleadoBL;
@@ -41,9 +39,25 @@ namespace WB.MVC.Controllers
             return View(emp);
         }
 
+        public IActionResult Eliminar(int id)
+        {
+            _empleadoBL.EliminarEmpleado(id);
+            return RedirectToAction("Index");
+        }
+        
+        public IActionResult Editar(int id)
+        {
+            var emp = _empleadoBL.BuscarEmpleado(id);
+            return View(emp);
+        }
 
-
-
+        
+        [HttpPost]
+        public IActionResult Editar(Empleado emp)
+        {
+            _empleadoBL.EditarEmpleado(emp);
+            return RedirectToAction("Index");
+        }
 
 
 
