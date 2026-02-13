@@ -24,6 +24,14 @@ namespace WB.LogicaNegocio
 
             return dal.ObtenerTodos();
         }
+
+        public void CrearEmpleado(Empleado emp)
+        {
+            var dal = new EmpleadoDAL(_db);
+            
+            dal.Insertar(emp);
+        }
+
     }
 }
 

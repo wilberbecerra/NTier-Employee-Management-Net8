@@ -1,0 +1,44 @@
+﻿@model WB.Entidades.Empleado
+@{
+    ViewData["Title"] = "Nuevo Empleado";
+}
+
+<div class="container mt-4">
+    <h2>Registrar Nuevo Empleado</h2>
+    <hr />
+    <form asp-action="Crear" method="post" class="row g-3">
+        <div class="col-md-6">
+            <label class="form-label">Nombres</label>
+            <input asp-for="Nombres" class="form-control" required />
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Apellidos</label>
+            <input asp-for="Apellidos" class="form-control" required />
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Email</label>
+            <input asp-for="Email" type="email" class="form-control" required />
+        </div>
+        <div class="col-md-3">
+            <label class="form-label">Sueldo</label>
+            <input asp-for="Sueldo" type="number" step="0.01" class="form-control" required />
+        </div>
+        <div class="col-md-3">
+            <label class="form-label">Fecha de Ingreso</label>
+            <input asp-for="FechaDeIngreso" type="date" class="form-control" required />
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">ID Departamento</label>
+            <input asp-for="IdDpto" type="number" class="form-control" required />
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">ID Cargo</label>
+            <input asp-for="IdCargos" type="number" class="form-control" required />
+        </div>
+
+        <div class="col-12 mt-4">
+            <button type="submit" class="btn btn-primary">Guardar Empleado</button>
+            <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </form>
+</div>

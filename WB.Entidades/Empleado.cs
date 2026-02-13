@@ -34,5 +34,7 @@ namespace WB.Entidades
 
         public string NombreCargo { get; set; } = "";
 
+        public bool Estado { get; set; } = true;
+
     }
 }

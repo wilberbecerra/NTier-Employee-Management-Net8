@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using WB.Entidades;
 using WB.LogicaNegocio;
 using WB.MVC.Models;
 
@@ -17,15 +18,40 @@ namespace WB.MVC.Controllers
             _empleadoBL = empleadoBL;
         }
 
-        // 4. Acción que se ejecuta al entrar a la página principal
+       
         public IActionResult Index()
-        {
-            // Ejecutamos el método que viaja hasta SQL y trae la lista
-            var listaEmpleados = _empleadoBL.ObtenerEmpleados();
-
-            // Pasamos la lista de objetos a la Vista para que los muestre
+        {            
+            var listaEmpleados = _empleadoBL.ObtenerEmpleados();           
             return View(listaEmpleados);
         }
+        
+        public IActionResult Crear()
+        {
+            return View();
+        }
+    
+        [HttpPost]
+        public IActionResult Crear(Empleado emp)
+        {
+            if (ModelState.IsValid)
+            {
+                _empleadoBL.CrearEmpleado(emp);
+                return RedirectToAction("Index");
+            }
+            return View(emp);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
 
         public IActionResult Privacy()
         {
