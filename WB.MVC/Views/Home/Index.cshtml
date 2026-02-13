@@ -1,8 +1,53 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@* 1. Le decimos a la vista qué tipo de datos va a recibir (La lista de empleados) *@
+@model IEnumerable<WB.Entidades.Empleado>
+
+@{
+    ViewData["Title"] = "Lista de Empleados";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container mt-4">
+    <h2 class="text-primary">Listado de Empleados</h2>
+    <hr />
+
+    @* Dibujamos una tabla usando las clases de diseño de Bootstrap *@
+    <table class="table table-striped table-hover table-bordered shadow-sm">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Email</th>
+                <th>Teléfono</th>
+                <th>Departamento</th>
+                <th>Cargo</th>
+                <th>Sueldo</th>
+            </tr>
+        </thead>
+        <tbody>
+            @* 2. Bucle foreach: Por cada empleado en el Modelo, creamos una fila (<tr>) *@
+            @if (Model != null && Model.Any())
+            {
+                foreach (var emp in Model)
+                {
+                    <tr>
+                        <td>@emp.IdEmpleado</td>
+                        <td>@emp.Nombres</td>
+                        <td>@emp.Apellidos</td>
+                        <td>@emp.Email</td>
+                        <td>@emp.Telefono</td>
+                        <td>@emp.NombreDepartamento</td>
+                        <td>@emp.NombreCargo</td>
+                        @* Formateamos el sueldo como moneda *@
+                        <td>@emp.Sueldo.ToString("C")</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="8" class="text-center text-danger">No se encontraron empleados en la base de datos.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>

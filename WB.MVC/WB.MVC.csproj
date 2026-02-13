@@ -6,4 +6,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\WB.AccesoDatos\WB.AccesoDatos.csproj" />
+    <ProjectReference Include="..\WB.Entidades\WB.Entidades.csproj" />
+    <ProjectReference Include="..\WB.LogicaNegocio\WB.LogicaNegocio.csproj" />
+  </ItemGroup>
+
 </Project>

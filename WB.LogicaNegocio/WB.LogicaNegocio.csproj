@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\WB.AccesoDatos\WB.AccesoDatos.csproj" />
+    <ProjectReference Include="..\WB.Entidades\WB.Entidades.csproj" />
+  </ItemGroup>
+
 </Project>

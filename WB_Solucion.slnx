@@ -1,3 +1,10 @@
 <Solution>
+  <Folder Name="/Elementos de la solución/">
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="WB.AccesoDatos/WB.AccesoDatos.csproj" Id="a337e993-8452-4b6d-8895-b229f6409135" />
+  <Project Path="WB.API/WB.API.csproj" Id="53d3cf6c-5891-4444-8488-1bc1048aafde" />
   <Project Path="WB.Entidades/WB.Entidades.csproj" />
+  <Project Path="WB.LogicaNegocio/WB.LogicaNegocio.csproj" Id="6281c892-2c5d-4f87-a4dc-b27eb37c6dad" />
+  <Project Path="WB.MVC/WB.MVC.csproj" Id="9c7c2224-8d1e-4263-be7b-d2f2bdc5487c" />
 </Solution>
