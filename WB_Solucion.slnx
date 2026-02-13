@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/BaseDeDatos/">
+    <File Path="WB_EXAMEN_FINAL.sql" />
+  </Folder>
   <Folder Name="/Elementos de la solución/">
     <File Path="README.md" />
   </Folder>

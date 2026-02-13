@@ -1,4 +1,14 @@
+using WB.AccesoDatos;
+using WB.LogicaNegocio;
+
 var builder = WebApplication.CreateBuilder(args);
+
+
+builder.Services.AddControllersWithViews();
+
+string cadenaConexion = builder.Configuration.GetConnectionString("CadenaSQL");
+builder.Services.AddSingleton(new DB_Acceso(cadenaConexion));
+builder.Services.AddScoped<EmpleadoBL>();
 
 // Add services to the container.
 
