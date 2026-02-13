@@ -45,7 +45,7 @@ Sistema de Gestión de Empleados Corporativo desarrollado con **.NET 8**, implem
 
 
 
-## ✨ PEditar Empleado
+## ✨ Editar Empleado
 ![Image_Alt](https://github.com/wilberbecerra/NTier-Employee-Management-Net8/blob/0c6d07d0b7a0ec71a618944dfe0348fb8c3dc875/recursos/editar.jpg)
 
 
