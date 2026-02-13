@@ -34,4 +34,18 @@ Sistema de Gestión de Empleados Corporativo desarrollado con **.NET 8**, implem
 1. Clonar el repositorio.
 2. Ejecutar el script `WB_EXAMEN_FINAL.sql` en su instancia de SQL Server.
 3. Actualizar la cadena de conexión en el archivo `appsettings.json`.
-4. ¡Ejecutar y probar!
+4. Ejecutar y probar.
+
+## ✨ Página Principal
+![Image_Alt](https://github.com/wilberbecerra/NTier-Employee-Management-Net8/blob/0c6d07d0b7a0ec71a618944dfe0348fb8c3dc875/recursos/listaDeEmpleados.jpg)
+
+
+## ✨ Crear Empleado
+![Image_Alt](https://github.com/wilberbecerra/NTier-Employee-Management-Net8/blob/0c6d07d0b7a0ec71a618944dfe0348fb8c3dc875/recursos/crear.jpg)
+
+
+
+## ✨ PEditar Empleado
+![Image_Alt](https://github.com/wilberbecerra/NTier-Employee-Management-Net8/blob/0c6d07d0b7a0ec71a618944dfe0348fb8c3dc875/recursos/editar.jpg)
+
+
