@@ -36,7 +36,7 @@ Sistema de Gestión de Empleados Corporativo desarrollado con **.NET 8**, implem
 3. Actualizar la cadena de conexión en el archivo `appsettings.json`.
 4. Ejecutar y probar.
 
-## ✨ Lista de Empleados
+## ✨ Listado de Empleados
 ![Image_Alt](https://github.com/wilberbecerra/NTier-Employee-Management-Net8/blob/0c6d07d0b7a0ec71a618944dfe0348fb8c3dc875/recursos/listaDeEmpleados.jpg)
 
 
